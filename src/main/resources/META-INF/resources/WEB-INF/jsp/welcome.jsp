@@ -7,7 +7,6 @@
 
 	<div>Welcome to in28Minutes</div>
 	<div>your name : ${name}</div>
-	<div>your password : ${password}</div>
 
 </body>
 </html>
