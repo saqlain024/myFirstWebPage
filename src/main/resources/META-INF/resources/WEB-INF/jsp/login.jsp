@@ -4,8 +4,16 @@
 	<title>Login Page</title>
 </head>
 <body>
-
-	<h1> you are in Login page -- ${name}</h1>
+	 Welcome to the login page
+	 <form action="#" method="POST">
+	 	Name: <input type="text" name="name" >
+	 	<br>
+	 	Password: <input type="password" name="password" >
+	 	<br>
+	 	<input type="submit" >
+	 </form>
+	
+	
 
 </body>
 </html>
