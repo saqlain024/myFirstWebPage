@@ -5,8 +5,8 @@
 </head>
 <body>
 
-	<div>Welcome to in28Minutes</div>
-	<div>your name : ${name}</div>
+	<div>Welcome ${name} </div>
+	<hr> 
 	<div><a href="list-todos">Manage</a> your todos </div>
 
 </body>
