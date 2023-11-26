@@ -7,6 +7,8 @@ import java.util.function.Predicate;
 
 import org.springframework.stereotype.Service;
 
+import jakarta.validation.Valid;
+
 @Service
 public class TodoService {
 	private static List<Todo> todos = new ArrayList<>();
@@ -14,7 +16,7 @@ public class TodoService {
 	private static int todosCount = 0;
 
 	static {
-		todos.add(new Todo(++todosCount, "in29Minutes", "Learn AWS", LocalDate.now().plusYears(1), false));
+		todos.add(new Todo(++todosCount, "in29Minutes", "Learn AWS Certified", LocalDate.now().plusYears(1), false));
 		todos.add(new Todo(++todosCount, "in29Minutes", "Learn devops", LocalDate.now().plusYears(2), false));
 		todos.add(new Todo(++todosCount, "in29Minutes", "Learn full stack development", LocalDate.now().plusYears(3),
 				false));
@@ -34,6 +36,18 @@ public class TodoService {
 		// todo->todo.getId() == id
 		Predicate<? super Todo> predicate = todo -> todo.getId() == id;
 		todos.removeIf(predicate);
+	}
+
+	public Todo findById(int id) {
+		Predicate<? super Todo> predicate = todo -> todo.getId() == id;
+		Todo todo = todos.stream().filter(predicate).findFirst().get();
+		return todo;
+	}
+
+	public void updateTodo(@Valid Todo todo) {
+		deleteById(todo.getId());
+		todos.add(todo);
+
 	}
 
 }
