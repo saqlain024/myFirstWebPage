@@ -31,6 +31,7 @@ public class TodoControllerJpa {
 		String username = getLoggedInUsername(model);
 
 		List<Todo> todos = todoRepository.findByUsername(username);
+		System.out.println(todos);
 		model.addAttribute("todos", todos);
 		return "listTodos";
 	}
@@ -95,6 +96,8 @@ public class TodoControllerJpa {
 
 	private String getLoggedInUsername(ModelMap model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		String a = authentication.getName();
+		System.out.println(a);
 		return authentication.getName();
 	}
 
